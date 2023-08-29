@@ -76,7 +76,7 @@ function Player:update()
 end
 
 function Player:updateJumpBuffer()
-    self.jumpBuffer -= 1
+    self.jumpBuffer = self.jumpBuffer - 1
     if self.jumpBuffer <= 0 then
         self.jumpBuffer = 0
     end
@@ -252,7 +252,7 @@ end
 
 -- Physics Helper Functions
 function Player:applyGravity()
-    self.yVelocity += self.gravity
+    self.yVelocity = self.yVelocity + self.gravity
     if self.touchingGround or self.touchingCeiling then
         self.yVelocity = 0
     end
@@ -260,9 +260,9 @@ end
 
 function Player:applyDrag(amount)
     if self.xVelocity > 0 then
-        self.xVelocity -= amount
+        self.xVelocity = self.xVelocity - amount
     elseif self.xVelocity < 0 then
-        self.xVelocity += amount
+        self.xVelocity = self.xVelocity + amount
     end
 
     if math.abs(self.xVelocity) < self.minimumAirSpeed or self.touchingWall then

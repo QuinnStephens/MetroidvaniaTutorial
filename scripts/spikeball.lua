@@ -37,7 +37,7 @@ function Spikeball:update()
     end
 
     if hitWall then
-        self.xVelocity *= -1
-        self.yVelocity *= -1
+        self.xVelocity = self.xVelocity * -1
+        self.yVelocity = self.yVelocity * -1
     end
 end
